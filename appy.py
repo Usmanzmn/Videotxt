@@ -1,8 +1,8 @@
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 
-st.set_page_config(page_title="📝 Text to Slides", layout="centered")
-st.title("📝 Text to Slide Generator (100% Streamlit Compatible)")
+st.set_page_config(page_title="Text to Slides", layout="centered")
+st.title("📝 Text to Slides (Streamlit Cloud Compatible)")
 
 def get_font(size=48):
     try:
@@ -36,14 +36,13 @@ def render_text_to_image(text, size=(1280, 720), font_size=48):
 
     return img
 
-# UI
-text_input = st.text_area("✍️ Enter your text (each line will be a slide):", height=300)
+text_input = st.text_area("✍️ Enter your text (each line becomes a slide):", height=300)
 
 if st.button("Generate Slides"):
     if not text_input.strip():
         st.warning("Please enter some text.")
     else:
-        st.info("📷 Generating images from text...")
+        st.info("Generating slides...")
         slides = text_input.strip().split("\n")
         for idx, line in enumerate(slides):
             if line.strip():
